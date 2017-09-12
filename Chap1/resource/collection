@@ -1,0 +1,50 @@
+python中读取中文时会报错，解决方法为只要在文件开头加入 # -*- coding: UTF-8 -*- 或者 #coding=utf-8 。
+但：Python3.X 源码文件默认使用utf-8编码，所以可以正常解析中文，无需指定 UTF-8 编码。
+
+- split（）方法
+
+```
+str.split(str="", num=string.count(str))
+```
+str -- 分隔符，默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等
+num -- 分割次数
+返回值为分割后的字符串
+```
+str = ('www.google.com')
+str_split = str.split('.'，1)
+#str.split(".",-1)等价于str.split(".") 
+
+url = ('www.google.com')
+str1, str2 = url.split('.', 1)
+[www,google.com]
+```
+- split方法只能根据指定的某个字符分隔字符串，如果要同时指定多个字符来分隔字符串，需要python的re模块中提供的split方法可以用来做这件事情：
+
+```
+a = 'Beautiful, is; better*than\nugly'
+import re
+a1 = re.split('; |, |\*|\n',a)
+x= re.split(',|; |\*|\n',a)
+y = re.split(r'[;,\s]\s*', a) #list
+z = re.split(r'(?:,|;|\s)\s*', a)
+```
+```
+['Beautiful', 'is', 'better', 'than', 'ugly']
+['Beautiful', ' is', 'better', 'than', 'ugly']
+['Beautiful', 'is', 'better*than', 'ugly']
+['Beautiful', 'is', 'better*than', 'ugly']
+```
+
+- join的用法 #与split（）相反，逆操作
+
+```
+line = ['my','name','is','bob'] 
+' '.join(line) 
+['my name is bob']
+ 
+'_'.join(line) 
+['my_name_is_bob'] 
+ 
+ '..'.join(line) 
+['my..name..is..bob']
+```

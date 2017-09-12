@@ -1,0 +1,58 @@
+# 程序随机生成一个20以内的数字，用户又10次机会猜测，根据输入，给予一定提示（非数字，大，小，正确），猜对或用完10次机会，游戏结束。
+
+#（1）随机数 调用
+
+需要导入random模块
+
+>>>import random
+
+1、random.random()  用于生成一个0到1的随机符小数: 0 <= n < 1.0
+>>> random.random()        # Random float x,
+
+2、random.uniform(a, b)，用于生成一个指定范围内的随机符点数，两个参数其中一个是上限，一个是下限。
+如果a > b，则生成的随机数n: a <= n <= b。
+如果 a <b， 则 b <= n <= a。
+>>> random.uniform(1, 10)  # Random float x,
+
+3、random.randint(a, b)，用于生成一个指定范围内的整数。其中参数a是下限，参数b是上限，生成的随机数n: a <= n <= b
+>>> random.randint(10, 100)
+
+4、random.randrange([start], stop[, step])，从指定范围内，按指定基数递增的集合中 获取一个随机数。如：random.randrange(10, 100, 2)，结果相当于从[10, 12, 14, 16, ... 96, 98]序列中获取一个随机数。
+random.randrange(10, 100, 2)在结果上与 random.choice(range(10, 100, 2) 等效。
+
+随机选取0到100间的偶数： 
+>>> import random 
+>>> random.randrange(0, 101, 2)
+
+5、random.choice(sequence)。从序列中获取一个随机元素。参数sequence表示一个有序类型。
+说明：sequence在Python不是一种特定的类型，而是泛指一系列的类型。list, tuple, 字符串都属于sequence。
+>>> random.choice('abcdefg&#%^*f')  #随机字符 
+'d'
+>>> random.choice ( ['apple', 'pear', 'peach', 'orange', 'lemon'] ) #随机选取字符串： 
+'lemon'
+
+6、random.shuffle(x[, random])，用于将一个列表中的元素打乱。如:
+p = ["Python", "is", "powerful", "simple", "and so on..."]  
+random.shuffle(p)  
+print p   
+#['powerful', 'simple', 'is', 'Python', 'and so on...']  
+p = ["Python", "is", "powerful", "simple", "and so on..."]
+
+7、random.sample(sequence, k)，从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。 如果k大于sequence元素个数的话会报错。 
+
+（2）、判断Python输入是否为数字
+
+在接收input方法后，判断接收到的字符串是否为数字，如if str.isdigit():
+
+为True表示输入的所有字符都是数字，否则，不是全部为数字
+
+str为字符串
+str.isalnum() 所有字符都是数字或者字母
+str.isalpha() 所有字符都是字母
+str.isdigit() 所有字符都是数字
+str.islower() 所有字符都是小写
+str.isupper() 所有字符都是大写
+str.istitle() 所有单词都是首字母大写，像标题
+str.isspace() 所有字符都是空白字符、\t、\n、\r
+
+
